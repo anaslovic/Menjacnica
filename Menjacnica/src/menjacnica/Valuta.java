@@ -11,18 +11,24 @@ public class Valuta {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
+		if(naziv==null || naziv.equals(""))
+			throw new RuntimeException("Naziv ne moze biti null niti prazan String!");
 		this.naziv = naziv;
 	}
 	public String getSkraceniNaziv() {
 		return skraceniNaziv;
 	}
 	public void setSkraceniNaziv(String skraceniNaziv) {
+		if(skraceniNaziv==null || skraceniNaziv.equals(""))
+			throw new RuntimeException("Skraceni naziv ne moze biti null niti prazan String!");
 		this.skraceniNaziv = skraceniNaziv;
 	}
 	public LinkedList<Kurs> getKursevi() {
 		return kursevi;
 	}
 	public void setKursevi(LinkedList<Kurs> kursevi) {
+		if(kursevi==null)
+			throw new RuntimeException("Prosledili ste praznu listu.");
 		this.kursevi = kursevi;
 	}
 	
