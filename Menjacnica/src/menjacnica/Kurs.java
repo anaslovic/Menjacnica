@@ -60,25 +60,12 @@ public class Kurs {
 	}
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if(!(obj instanceof Kurs))
+			throw new RuntimeException("Uneti objekat nije kurs.");
+		Kurs k = (Kurs)obj;
+		if(k.getDatum().compareTo(datum)==0 && k.getKupovni()==kupovni && k.getProdajni()==prodajni && k.getSrednji()==srednji)
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Kurs other = (Kurs) obj;
-		if (datum == null) {
-			if (other.datum != null)
-				return false;
-		} else if (!datum.equals(other.datum))
-			return false;
-		if (Double.doubleToLongBits(kupovni) != Double.doubleToLongBits(other.kupovni))
-			return false;
-		if (Double.doubleToLongBits(prodajni) != Double.doubleToLongBits(other.prodajni))
-			return false;
-		if (Double.doubleToLongBits(srednji) != Double.doubleToLongBits(other.srednji))
-			return false;
-		return true;
+		return false;
 	}
 	
 	
