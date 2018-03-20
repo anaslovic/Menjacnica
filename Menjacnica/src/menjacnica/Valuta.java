@@ -26,5 +26,28 @@ public class Valuta {
 		this.kursevi = kursevi;
 	}
 	
+	@Override
+	public String toString() {
+		return "Naziv valute:"+naziv+" Skraceni naziv:"+skraceniNaziv;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((kursevi == null) ? 0 : kursevi.hashCode());
+		result = prime * result + ((naziv == null) ? 0 : naziv.hashCode());
+		result = prime * result + ((skraceniNaziv == null) ? 0 : skraceniNaziv.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if(!(obj instanceof Valuta))
+			throw new RuntimeException("Uneti objekat nije valuta!");
+		Valuta v = (Valuta)obj;
+		if(v.getNaziv().equals(naziv))
+			return true;
+		return false;
+	}
+	
 	
 }
